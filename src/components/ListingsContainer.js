@@ -12,7 +12,7 @@ function ListingsContainer({locationToggle, currentSearch}) {
   }, [deleted, currentSearch, locationToggle])
 
   function sortListings(l1, l2){
-    return l1.location > l2.location
+    return l1.location.toLowerCase() > l2.location.toLowerCase()
   }
 
   function onDelete(id){
