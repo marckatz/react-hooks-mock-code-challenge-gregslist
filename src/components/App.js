@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "./Header";
 import ListingsContainer from "./ListingsContainer";
 
 function App() {
+  const [currentSearch, setSearch] = useState("")
+
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer />
+      <Header currentSearch={currentSearch} setSearch={setSearch}/>
+      <ListingsContainer currentSearch={currentSearch}/>
     </div>
   );
 }
