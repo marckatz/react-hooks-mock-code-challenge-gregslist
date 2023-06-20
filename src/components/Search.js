@@ -4,7 +4,7 @@ function Search({currentSearch, setSearch}) {
   function handleSubmit(e) {
     e.preventDefault();
     setSearch(e.target[0].value)
-    console.log(e.target[0].value);
+    // console.log(e.target[0].value);
   }
 
   return (
@@ -14,7 +14,7 @@ function Search({currentSearch, setSearch}) {
         id="search"
         placeholder="search free stuff"
         // value=""
-        onChange={(e) => setSearch(e.target.value)}
+        // onChange={(e) => setSearch(e.target.value)}
       />
       <button type="submit">🔍</button>
     </form>

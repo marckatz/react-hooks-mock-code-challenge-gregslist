@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./Search";
 
-function Header({currentSearch, setSearch}) {
+function Header({setSearch,currentSearch, sortByLocationToggle}) {
   return (
     <header>
       <h1>
@@ -11,6 +11,7 @@ function Header({currentSearch, setSearch}) {
         gregslist
       </h1>
       <Search currentSearch={currentSearch} setSearch={setSearch}/>
+      <input type="checkbox" onClick={sortByLocationToggle}></input>
     </header>
   );
 }

@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({currentSearch}) {
+function ListingsContainer({locationToggle, currentSearch}) {
   const [listings, setListings] = useState([]) 
   const [deleted, setDeteled] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:6001/listings')
     .then(r => r.json())
-    .then(listings => setListings(listings))
-  }, [deleted, currentSearch])
+    .then(listings => setListings(locationToggle?listings.sort(sortListings):listings))
+  }, [deleted, currentSearch, locationToggle])
+
+  function sortListings(l1, l2){
+    return l1.location > l2.location
+  }
 
   function onDelete(id){
     fetch(`http://localhost:6001/listings/${id}`, {

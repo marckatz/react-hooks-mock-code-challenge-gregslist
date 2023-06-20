@@ -4,11 +4,17 @@ import ListingsContainer from "./ListingsContainer";
 
 function App() {
   const [currentSearch, setSearch] = useState("")
+  const [locationToggle, setLocationToggle] = useState(false)
+
+  function sortByLocationToggle(){
+    setLocationToggle(!locationToggle)
+  }
 
   return (
     <div className="app">
-      <Header currentSearch={currentSearch} setSearch={setSearch}/>
-      <ListingsContainer currentSearch={currentSearch}/>
+      <Header sortByLocationToggle={sortByLocationToggle} currentSearch={currentSearch} setSearch={setSearch}/>
+      <ListingsContainer currentSearch={currentSearch} locationToggle={locationToggle}/>
+      {/* <NewListingForm /> */}
     </div>
   );
 }
